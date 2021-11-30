@@ -10,8 +10,10 @@ function App() {
   })
 
   async function getVideos(){
-    const response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyCFkYBQpklfldTUUxy9csFQfWr4Z2ZQcdU');
-    console.log(response.data);
+    const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCFkYBQpklfldTUUxy9csFQfWr4Z2ZQcdU&maxResults=5&type=video&q=mkbhd`); //Interpolate a SearchBar Input Function
+    console.log(response.data.items[0].id.videoId);
+
+    const mainVideo = response.data.items[0].id.videoId;
   }
 
   return (
