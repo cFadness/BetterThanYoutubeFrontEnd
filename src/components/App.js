@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import BetterThanYTPlayer from './VideoPlayer/VideoPlayer';
 
 function App() {
+
+  useEffect(() => {
+    getVideos();
+  })
+
+  async function getVideos(){
+    const response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyCFkYBQpklfldTUUxy9csFQfWr4Z2ZQcdU');
+    console.log(response.data);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hi BetterThanYoutube!</h1>
+      <BetterThanYTPlayer />
     </div>
   );
 }
+
 
 export default App;
