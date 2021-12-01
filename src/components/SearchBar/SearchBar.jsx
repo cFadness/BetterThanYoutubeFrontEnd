@@ -8,7 +8,7 @@ function SearchBar() {
                 <input
                 type="text"
                 placeholder="Search for a Video"
-                value=
+                value=""
                 // onChange=
                 className="searchInput"/>
             </div>
